@@ -27,7 +27,7 @@ module DataMapper
       # be used to instantiate objects by doc[:_type] and doc[:_id]
       def read(query)
         fields = query.fields
-        key    = query.model.key(name).first
+        key    = query.model.key.first
 
         ferret_query = dm_query_to_ferret_query(query)
 

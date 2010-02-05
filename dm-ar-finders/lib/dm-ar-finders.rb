@@ -94,7 +94,7 @@ module DataMapper
           properties = DataMapper::PropertySet.new(properties)
         end
       else
-        properties = self.properties(repository.name)
+        properties = self.properties
       end
 
       unless repository.adapter.kind_of?(Adapters::DataObjectsAdapter)

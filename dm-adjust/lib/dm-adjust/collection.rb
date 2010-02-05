@@ -20,7 +20,7 @@ module DataMapper
       return true if attributes.empty?
 
       reload_conditions = if reload
-        model_key = model.key(repository.name)
+        model_key = model.key
         Query.target_conditions(self, model_key, model_key)
       end
 
@@ -41,7 +41,7 @@ module DataMapper
     def adjust_attributes(attributes)
       adjust_attributes = {}
 
-      model.properties(repository.name).values_at(*attributes.keys).each do |property|
+      model.properties.values_at(*attributes.keys).each do |property|
         adjust_attributes[property] = attributes[property.name]
       end
 

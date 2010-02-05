@@ -11,7 +11,7 @@ module DataMapper
         bind_values = []
 
         # make the order of the properties consistent
-        query.model.properties(name).each do |property|
+        query.model.properties.each do |property|
           next unless attributes.key?(property)
           properties  << property
           bind_values << attributes[property]
